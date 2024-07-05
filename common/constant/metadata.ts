@@ -13,5 +13,5 @@ export const METADATA = {
   },
   exTitle: '| Abdi Purnawan',
   profile:
-    'https://res.cloudinary.com/dmfwgcart/image/upload/v1694227223/F516027D-7791-414F-9E01-13AF91ABC453_1_201_a_chxf65.jpg'
+    'https://res.cloudinary.com/dmfwgcart/image/upload/v1720139270/xlohlu7c9xjph8uwkqgy.png'
 };
