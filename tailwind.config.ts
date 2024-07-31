@@ -39,12 +39,21 @@ const config: Config = {
             transform: 'scaleY(1.7) scaleX(1.25)',
             opacity: '0'
           }
-        }
+        },
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
       },
       animation: {
         'waving-hand': 'wave 2s linear infinite',
         'flying-card': 'flying 3s infinite normal',
-        'badge-pulse': 'badge 1.5s ease-out infinite'
+        'badge-pulse': 'badge 1.5s ease-out infinite',
+        "meteor-effect": "meteor 5s linear infinite",
       }
     }
   },

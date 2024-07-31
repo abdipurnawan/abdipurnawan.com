@@ -7,6 +7,7 @@ import 'aos/dist/aos.css';
 import React, { ReactNode, useEffect } from 'react';
 
 import Sidebar from './sidebar';
+import { Meteors } from '../elements/Meteors';
 
 interface LayoutsProps {
   children: ReactNode;
@@ -30,6 +31,7 @@ export default function Layouts({ children }: LayoutsProps) {
           </header>
         )}
         <main className="lg:max-w-[854px] transition-all duration-300 w-full lg:min-h-screen overflow-y-auto no-scrollbar">
+          <Meteors number={20} />
           {children}
         </main>
       </div>
