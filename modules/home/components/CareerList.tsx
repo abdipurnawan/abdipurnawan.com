@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { HiOutlineBriefcase as CareerIcon } from 'react-icons/hi';
-import { LuDownload as DownloadIcon } from 'react-icons/lu';
+import { LuArrowUpRightFromCircle } from 'react-icons/lu';
 
 import SectionHeading from '@/common/components/elements/SectionHeading';
 import SectionSubHeading from '@/common/components/elements/SectionSubHeading';
@@ -9,7 +9,7 @@ import { CAREERS } from '@/common/constant/careers';
 
 import CareerCard from './CareerCard';
 
-const RESUME_URL = 'https://github.com/abdipurnawan';
+const RESUME_URL = 'https://read.cv/abdipurnawan';
 
 export default function CareerList() {
   return (
@@ -22,11 +22,11 @@ export default function CareerList() {
             href={RESUME_URL}
             target="_blank"
             passHref
-            className="flex gap-2 hover:gap-3 transition-all duration-300 items-center text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 hover:dark:text-neutral-300"
+            className="flex gap-2 transition-all duration-300 items-center text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 hover:dark:text-neutral-300"
             data-umami-event="Download Resume"
           >
-            <DownloadIcon />
-            <span>Download Resume</span>
+            <LuArrowUpRightFromCircle />
+            <span>View My Journey</span>
           </Link>
         </SectionSubHeading>
       </div>
