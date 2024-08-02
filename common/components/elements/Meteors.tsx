@@ -1,6 +1,7 @@
 'use client';
 
 import clsxm from "@/common/libs/clsxm";
+import useIsMobile from "@/hooks/useIsMobile";
 import React from "react";
 
 export const Meteors = ({
@@ -11,13 +12,14 @@ export const Meteors = ({
   className?: string;
 }) => {
   const [mounted, setMounted] = React.useState(false);
+  const isMobile = useIsMobile();
   const meteors = new Array(number || 20).fill(true);
 
   React.useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted || isMobile) return null;
   
   return (
     <>

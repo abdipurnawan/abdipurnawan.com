@@ -33,14 +33,14 @@ export default function ThemeToggle() {
     <motion.div
       className={clsxm(
         'group relative w-16 h-8 flex items-center rounded-full py-1 px-0.5 cursor-pointer select-none',
-        isOn ? 'bg-white bg-opacity-20' : 'bg-black bg-opacity-5'
+        isOn ? 'bg-white bg-opacity-20' : 'bg-black bg-opacity-5 border'
       )}
       onClick={toggleTheme}
       initial={{ scale: 0 }}
       animate={{ rotate: 360, scale: 1 }}
       transition={{
         type: 'spring',
-        stiffness: 260,
+        stiffness: 100,
         damping: 20
       }}
     >

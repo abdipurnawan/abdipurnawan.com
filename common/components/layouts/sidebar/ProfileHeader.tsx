@@ -1,44 +1,64 @@
+'use client';
+
 import Link from 'next/link';
 
 import clsx from 'clsx';
 import React, { useState } from 'react';
-
 import { MdVerified as VerifiedIcon } from 'react-icons/md';
 
 import { DEVTO_PROFILE, PROFILE_URL } from '@/common/constant';
 
+import useIsMobile from '@/hooks/useIsMobile';
+
 import Image from '../../elements/Image';
-import Tooltip from '../../elements/Tooltip';
 import ThemeToggle from '../../elements/ThemeToggle';
+import Tooltip from '../../elements/Tooltip';
 
 interface ProfileHeaderProps {
   expandMenu: boolean;
   imageSize: number;
 }
 
-
-
 export default function ProfileHeader({ expandMenu, imageSize }: ProfileHeaderProps) {
+  const [mounted, setMounted] = useState(false);
+  const isMobile = useIsMobile();
 
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+  
   return (
     <div
       className={clsx(
-        'flex items-center lg:items-start gap-4 lg:gap-0.5 flex-grow lg:flex-col w-full',
+        'flex items-center lg:items-start gap-4 lg:gap-0.5 flex-grow lg:flex-col lg:w-full',
         expandMenu && 'flex-col !items-start'
       )}
     >
-      <div className="flex justify-between w-full">
-        <Image
-          src={PROFILE_URL}
-          alt="profile"
-          width={expandMenu ? 80 : imageSize}
-          height={expandMenu ? 80 : imageSize}
-          rounded="rounded-full"
-          className="lg:hover:scale-105"
-        />
+      {!isMobile ? (
+        <div className="flex justify-between w-full">
+          <Image
+            src={PROFILE_URL}
+            alt="profile"
+            width={expandMenu ? 80 : imageSize}
+            height={expandMenu ? 80 : imageSize}
+            rounded="rounded-full"
+            className="lg:hover:scale-105"
+          />
 
-       <ThemeToggle/>
-      </div>
+          <ThemeToggle />
+        </div>
+      ) : (
+        <Image
+            src={PROFILE_URL}
+            alt="profile"
+            width={expandMenu ? 80 : imageSize}
+            height={expandMenu ? 80 : imageSize}
+            rounded="rounded-full"
+            className="lg:hover:scale-105"
+          />
+      )}
 
       <div className="flex gap-2 items-center mt-1 lg:mt-4">
         <Link href="/" passHref>
