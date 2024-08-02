@@ -1,20 +1,25 @@
 import Link from 'next/link';
 
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
+
 import { MdVerified as VerifiedIcon } from 'react-icons/md';
 
 import { DEVTO_PROFILE, PROFILE_URL } from '@/common/constant';
 
 import Image from '../../elements/Image';
 import Tooltip from '../../elements/Tooltip';
+import ThemeToggle from '../../elements/ThemeToggle';
 
 interface ProfileHeaderProps {
   expandMenu: boolean;
   imageSize: number;
 }
 
+
+
 export default function ProfileHeader({ expandMenu, imageSize }: ProfileHeaderProps) {
+
   return (
     <div
       className={clsx(
@@ -22,14 +27,19 @@ export default function ProfileHeader({ expandMenu, imageSize }: ProfileHeaderPr
         expandMenu && 'flex-col !items-start'
       )}
     >
-      <Image
-        src={PROFILE_URL}
-        alt="profile"
-        width={expandMenu ? 80 : imageSize}
-        height={expandMenu ? 80 : imageSize}
-        rounded="rounded-full"
-        className="lg:hover:scale-105"
-      />
+      <div className="flex justify-between w-full">
+        <Image
+          src={PROFILE_URL}
+          alt="profile"
+          width={expandMenu ? 80 : imageSize}
+          height={expandMenu ? 80 : imageSize}
+          rounded="rounded-full"
+          className="lg:hover:scale-105"
+        />
+
+       <ThemeToggle/>
+      </div>
+
       <div className="flex gap-2 items-center mt-1 lg:mt-4">
         <Link href="/" passHref>
           <h2 className="flex-grow text-lg lg:text-xl font-sora font-medium">Abdi Purnawan</h2>

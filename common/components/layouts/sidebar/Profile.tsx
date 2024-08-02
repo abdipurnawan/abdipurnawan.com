@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { AnimatePresence } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import Status from '@/common/components/elements/Status';
 
@@ -44,7 +44,6 @@ export default function Profile() {
         {!isMobile && (
           <div className="flex items-center mt-4 w-full justify-between">
             <Status />
-            <ThemeToggle />
           </div>
         )}
         {isMobile && (
